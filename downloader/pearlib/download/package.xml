@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>ET_IpSecurity</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>Extension allows to restrict access to website for visitors by IP, IP mask or IP range. Also allows to turn off frontend during maintenance operations.</summary>
+ <description>Extension allows to restrict access to website for visitors by IP, IP mask or IP range. 
+When blocking rule is applied user is redirected to selected CMS page or blank page. Also extension can notify website owner about blocked visitor by email.
+
+Second function: Allows to turn off frontend during maintenance operations.</description>
+ <lead>
+  <name>Jurij</name>
+  <user>niro</user>
+  <email>support@etwebsolutions.com</email>
+  <active>yes</active>
+ </lead>
+ <developer>
+  <name>Andrej</name>
+  <user>zlojd</user>
+  <email>support@etwebsolutions.com</email>
+  <active>yes</active>
+ </developer>
+ <date>2011-06-07</date>
+ <time>05:39:17</time>
+ <version>
+  <release>1.5.3</release>
+  <api>1.5.3</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://opensource.org/licenses/afl-3.0.php">AFL v3.0</license>
+ <notes>stable release</notes>
+ <contents>
+  <dir name="/">
+   <dir name="adminhtml">
+    <dir name="default">
+     <dir name="default">
+      <dir name="layout">
+       <file md5sum="3e677b0e6fffcfb90d1d03dd7bc8daa8" name="et_ipsecurity.xml" role="magedesign" />
+      </dir> <!-- /adminhtml/default/default/layout -->
+     </dir> <!-- /adminhtml/default/default -->
+    </dir> <!-- /adminhtml/default -->
+   </dir> <!-- /adminhtml -->
+   <dir name="en_US">
+    <dir name="template">
+     <dir name="email">
+      <file md5sum="2b67f7f1bc21e003da6246fe76462af4" name="et_ipsecurity.html" role="magelocale" />
+      <file md5sum="2b67f7f1bc21e003da6246fe76462af4" name="et_ipsecurity_admin.html" role="magelocale" />
+     </dir> <!-- /en_US/template/email -->
+    </dir> <!-- /en_US/template -->
+    <file md5sum="26e22ba736a937422cfc1755670e71a8" name="ET_IpSecurity.csv" role="magelocale" />
+   </dir> <!-- /en_US -->
+   <dir name="ET">
+    <dir name="IpSecurity">
+     <dir name="Block">
+      <dir name="Adminhtml">
+       <dir name="Log">
+        <file md5sum="baef872daeaa6a195b4bab090244b16f" name="Grid.php" role="magecommunity" />
+       </dir> <!-- /ET/IpSecurity/Block/Adminhtml/Log -->
+       <file md5sum="17f11639de5af08019be9577fd01e733" name="Log.php" role="magecommunity" />
+      </dir> <!-- /ET/IpSecurity/Block/Adminhtml -->
+     </dir> <!-- /ET/IpSecurity/Block -->
+     <dir name="controllers">
+      <dir name="Adminhtml">
+       <file md5sum="cfc12c6a05fcb0486bb9f3b4c2eae4d0" name="LogController.php" role="magecommunity" />
+      </dir> <!-- /ET/IpSecurity/controllers/Adminhtml -->
+     </dir> <!-- /ET/IpSecurity/controllers -->
+     <dir name="etc">
+      <file md5sum="7899e48569aa5d629179c9b1f192b1a6" name="config.xml" role="magecommunity" />
+      <file md5sum="462b9b4d2e802a63cdeaca5448b6bc47" name="system.xml" role="magecommunity" />
+     </dir> <!-- /ET/IpSecurity/etc -->
+     <dir name="Helper">
+      <file md5sum="08c557cd26157c317c1049d5f1366eab" name="Data.php" role="magecommunity" />
+     </dir> <!-- /ET/IpSecurity/Helper -->
+     <dir name="Model">
+      <dir name="Mysql4">
+       <dir name="Ipsecuritylog">
+        <file md5sum="929fd786020e26b87f900caf0f2996f1" name="Collection.php" role="magecommunity" />
+       </dir> <!-- /ET/IpSecurity/Model/Mysql4/Ipsecuritylog -->
+       <file md5sum="4ec2037e5a52eaa4278ddd7ad2929dfc" name="Ipsecuritylog.php" role="magecommunity" />
+      </dir> <!-- /ET/IpSecurity/Model/Mysql4 -->
+      <file md5sum="bb8a6ad3b612c46ef8b2fa36d2fac709" name="Ipsecuritylog.php" role="magecommunity" />
+      <file md5sum="54243c67cd6b36e5b2fe9a5addaacfd7" name="Observer.php" role="magecommunity" />
+     </dir> <!-- /ET/IpSecurity/Model -->
+     <dir name="sql">
+      <dir name="ipsecurity_setup">
+       <file md5sum="c2524c78dbb7db294d53983ca588c5bb" name="mysql4-install-1.5.php" role="magecommunity" />
+      </dir> <!-- /ET/IpSecurity/sql/ipsecurity_setup -->
+     </dir> <!-- /ET/IpSecurity/sql -->
+    </dir> <!-- /ET/IpSecurity -->
+    <file md5sum="78b7fbe5ad986b7c39a28e7b72ed9927" name="ET_IpSecurity_ChangeLog.txt" role="magecommunity" />
+    <file md5sum="fc3b3f0f66c6cd3964c564212f809d0a" name="ET_IpSecurity_Description.txt" role="magecommunity" />
+    <file md5sum="b799504264c23c11a941473d7a3e3ab7" name="ET_IpSecurity_LICENSE.txt" role="magecommunity" />
+   </dir> <!-- /ET -->
+   <dir name="modules">
+    <file md5sum="d191fe14ed772c4515519e1445af2229" name="ET_IpSecurity.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+   <dir name="ru_RU">
+    <dir name="template">
+     <dir name="email">
+      <file md5sum="a6f731a6903375bfc06edc6a31d67865" name="et_ipsecurity.html" role="magelocale" />
+      <file md5sum="5961f9ae7d71f843d96d70c18c223222" name="et_ipsecurity_admin.html" role="magelocale" />
+     </dir> <!-- /ru_RU/template/email -->
+    </dir> <!-- /ru_RU/template -->
+    <file md5sum="7f1e9f9b92e96f45fc45b13d0ca4e5e6" name="ET_IpSecurity.csv" role="magelocale" />
+   </dir> <!-- /ru_RU -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+    <max>6.0.0</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<CG_Paypal>
+			<version>0.1.0</version>
+		</CG_Paypal>
+	</modules>
+	<global>
+		<models>
+			<paypal>
+				<rewrite>
+					<standard>CG_Paypal_Model_Standard</standard>
+				</rewrite>
+			</paypal>
+		</models>
+	</global>
+</config>

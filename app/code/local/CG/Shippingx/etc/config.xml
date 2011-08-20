@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CG_Shippingx>
+            <version>0.1.0</version>
+        </CG_Shippingx>
+    </modules>
+    <global>
+    	<models>
+    		<shipping>
+    			<rewrite>
+    				<shipping>CG_Shippingx_Model_Shipping</shipping>
+    			</rewrite>
+    		</shipping>
+    	</models>
+    </global>
+    <frontend>
+    	<routers>
+    		<shippingx>
+    			<use>standard</use>
+    			<args>
+    				<module>CG_Shippingx</module>
+    				<frontName>shippingx</frontName>
+    			</args>
+    		</shippingx>
+    	</routers>
+    </frontend>
+</config>

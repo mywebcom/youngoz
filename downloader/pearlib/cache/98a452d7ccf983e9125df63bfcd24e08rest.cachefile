@@ -1,0 +1,31 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:13:"ET_IpSecurity";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:27:"Academic Free License (AFL)";s:2:"lu";s:47:"http://www.opensource.org/licenses/academic.php";s:1:"s";s:77:"Extension allows to restrict access to website for visitors by IP or IP mask.";s:1:"d";s:1955:"<p><span><span style="color: #ff6600;">EN</span>:</span></p>
+<p>Extension allows to restrict access to website for visitors by IP, IP mask or IP range.&nbsp;When blocking rule is applied user is redirected to selected CMS page or blank page.&nbsp;Also extension can notify website owner about blocked visitor by email.  Second function: Allows to turn off frontend during maintenance operations.</p>
+<p><strong>Changelog</strong>:</p>
+<p>ver. 1.5.3 (07/06/2011)</p>
+<ul>
+<li>*&nbsp;minor bug fixes (variable initializing)</li>
+</ul>
+<p>ver. 1.5.2</p>
+<ul>
+<li>+ added ability to use IP ranges (Example: 10.0.0.1-20.0.0.1|IP Range)</li>
+</ul>
+<p>ver. 1.5.1</p>
+<ul>
+<li>* resolved infinite loop when admin block rule happens and option "Add Store Code to Urls" = Yes and redirect to CMS page is on.</li>
+</ul>
+<p>ver. 1.5.0</p>
+<ul>
+<li>+ added table to database to store blocked ip's</li>
+<li>+ added log grid in admin</li>
+<li>+ added option: send notification every time on block or only on first</li>
+</ul>
+<p>ver. 1.2.0</p>
+<ul>
+<li>* changed code pool from local to community</li>
+<li>* changed settings section</li>
+<li>+ added maintenance page function</li>
+</ul>
+<p>&nbsp;</p>
+<p>Please, do not use forum for bug report. I can't answer there. Send pm if you want answer :)</p>
+<p><span><span style="color: #ff6600;">RU</span>:</span></p>
+<p>Модуль позволяет ограничивать доступ к сайту посетителям по IP или по IP маскам.&nbsp;При срабатывании правила перенаправляет посетителя на указанную CMS страницу или просто на пустую страницу. Также может оповестить владельца сайта о сработавшем правиле по е-майл. Доступна функция отключения сайта на техническое обслуживание.&nbsp;</p>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:40:"/Chiara_PEAR_Server_REST/r/ET_IpSecurity";}}}

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- 
+/*********************************************************************************
+ * Copyright 2009 Priacta, Inc.
+ * 
+ * This software is provided free of charge, but you may NOT distribute any
+ * derivative works or publicly redistribute the software in any form, in whole
+ * or in part, without the express permission of the copyright holder.
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *********************************************************************************/
+-->
+
+<layout version="0.2.0">
+
+    <!-- Add click tracking code to all pages -->
+    <default>
+        <reference name="before_body_end">
+            <block type="pap/clicktracking" name="pap_clicktracking" as="pap_clicktracking" />
+        </reference>
+    </default>
+    
+    <!-- Add javascript base sales tracking code to all checkout success pages -->
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="pap/saletracking" name="pap_saletracking" as="pap_saletracking" />
+        </reference>
+    </checkout_onepage_success>
+    <checkout_multishipping_success>
+        <reference name="before_body_end">
+            <block type="pap/saletracking" name="pap_saletracking" as="pap_saletracking" />
+        </reference>
+    </checkout_multishipping_success>
+    
+    <pap_account_create>
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="pap/form_register" name="pap_form_register" template="pap/form/register.phtml"/>
+        </reference>
+    </pap_account_create>
+    
+    <pap_account_login>
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="pap/form_login" name="pap_form_login" template="pap/form/login.phtml"/>
+        </reference>
+    </pap_account_login>
+    
+</layout>

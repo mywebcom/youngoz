@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <CG_Aus>
+            <version>0.1.0</version>
+        </CG_Aus>
+    </modules>
+    <global>
+    	<models>
+    		<aus>
+    			<class>CG_Aus_Model</class>
+    		</aus>
+    	</models>
+    </global>
+    <default>
+    	<carriers>
+    		<tollipec>
+                <active>1</active>
+                <model>aus/shipping_carrier_tollipec</model>
+                <name>Toll IPEC</name>
+                <title>Toll IPEC</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+    		</tollipec>
+    		<tnt>
+    			<active>1</active>
+                <model>aus/shipping_carrier_tnt</model>
+                <name>TNT Road Express</name>
+                <title>TNT Road Express</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+    		</tnt>
+    	</carriers>
+    </default>
+</config>

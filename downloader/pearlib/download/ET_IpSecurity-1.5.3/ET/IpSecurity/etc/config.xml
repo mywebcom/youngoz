@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * ET Web Solutions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   ET
+ * @package    ET_IpSecurity
+ * @copyright  Copyright (c) 2010 ET Web Solutions (http://etwebsolutions.com)
+ * @contacts   support@etwebsolutions.com
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */ 
+ --> 
+
+<config>
+	<modules>
+		<ET_IpSecurity>
+			<version>1.5.3</version>
+			<descr>
+				<ru_RU><![CDATA[
+					Модуль позволяет ограничивать доступ к сайту посетителям по IP, IP маскам или диапозону IP. 
+					При срабатывании правила перенаправляет посетителя на указанную CMS страницу или просто на пустую страницу. Также может оповестить владельца сайта о сработавшем правиле по е-майл.
+
+					Доступна функция отключения сайта на техническое обслуживание.]]>
+				</ru_RU>
+				<en_US><![CDATA[
+					Extension allows to restrict access to website for visitors by IP, IP mask or IP range. 
+					When blocking rule is applied user is redirected to selected CMS page or blank page. Also extension can notify website owner about blocked visitor by email.
+
+					Second function: Allows to turn off frontend during maintenance operations.]]>
+				</en_US>
+			</descr>
+
+		</ET_IpSecurity>
+	</modules>
+	<global>
+		<models>
+			<etipsecurity>
+				<class>ET_IpSecurity_Model</class>
+				<resourceModel>etipsecurity_mysql4</resourceModel>
+			</etipsecurity>
+			<etipsecurity_mysql4>
+				<class>ET_IpSecurity_Model_Mysql4</class>
+				<entities>
+					<ipsecuritylog>
+						<table>ipsecurity_log</table>
+					</ipsecuritylog>
+				</entities>
+			</etipsecurity_mysql4>
+		</models>
+		<helpers>
+			<etipsecurity>
+				<class>ET_IpSecurity_Helper</class>
+			</etipsecurity>
+		</helpers>
+		<blocks>
+			<etipsecurity>
+				<class>ET_IpSecurity_Block</class>
+			</etipsecurity>
+		</blocks>
+		<resources>
+			<ipsecurity_setup>
+				<setup>
+					<module>ET_IpSecurity</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</ipsecurity_setup>
+			<etipsecurity_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</etipsecurity_write>
+			<etipsecurity_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</etipsecurity_read>
+		</resources>
+
+
+
+
+
+		<template>
+			<email>
+				<etipsecurity_ipsecurityfront_email_template translate="label" module="etipsecurity">
+					<label>Security Violence to Frontend</label>
+					<file>et_ipsecurity.html</file>
+					<type>text</type>
+				</etipsecurity_ipsecurityfront_email_template>
+				<etipsecurity_ipsecurityadmin_email_template translate="label" module="etipsecurity">
+					<label>Security Violence to Admin</label>
+					<file>et_ipsecurity_admin.html</file>
+					<type>text</type>
+				</etipsecurity_ipsecurityadmin_email_template>
+			</email>
+		</template>
+	</global>
+
+	<default>
+		<etipsecurity>
+			<ipsecurityfront>
+				<email_always>0</email_always>
+			</ipsecurityfront>
+			<ipsecurityadmin>
+				<email_always>0</email_always>
+			</ipsecurityadmin>
+			<ipsecuritymaintetance>
+				<enabled>0</enabled>
+				<message><![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>We're sorry, but our website is under maintenance.</title>
+	<style> 
+	body {
+	background:#FFF none repeat scroll 0 0;
+	color:#000;
+	font-family:Helvetica,Arial,Verdana,sans-serif;
+	font-size:12px;
+	 
+	margin:0;
+	padding:0;
+	text-align:center;
+	}
+	h1 
+	{
+	 margin:0px;
+	 padding:0px;
+	  margin-top:30%;
+	  font-size: 25pt;
+	  display:block;
+	}
+	h2
+	{
+	 padding:0px;
+	  margin-top: 5px;
+	  font-size: 18pt;
+	}
+	 
+	</style>
+</head>
+ 
+<body>
+	<h1>We're sorry, but our website is under maintenance.</h1>
+	<h2>Please try refreshing this page later.</h2>
+</body>
+
+</html>
+ ]]>
+				</message>
+				<remindermessage><![CDATA[<p style="margin:0; padding:6px 10px; background:#d75f07; font-size:12px; line-height:1.15; text-align:center; color:#fff;">This store is under maintenance. Yo can see this page because your IP is in exception list.</p>]]></remindermessage>
+			</ipsecuritymaintetance>
+		</etipsecurity>
+	</default>
+
+
+	<frontend>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<ET_IpSecurity_observer>
+						<type>singleton</type>
+						<class>etipsecurity/observer</class>
+						<method>apply_ip_check_frontend</method>
+					</ET_IpSecurity_observer>
+				</observers>
+			</controller_action_predispatch>     
+		</events>
+	</frontend>
+	<admin>
+		<routers>
+			<etipsecurity>
+				<use>admin</use>
+				<args>
+					<module>ET_IpSecurity</module>
+					<frontName>etipsecurity</frontName>
+				</args>
+			</etipsecurity>
+		</routers>
+	</admin>
+	<adminhtml>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<ET_IpSecurity_observer>
+						<type>singleton</type>
+						<class>etipsecurity/observer</class>
+						<method>apply_ip_check_admin</method>
+					</ET_IpSecurity_observer>
+				</observers>
+			</controller_action_predispatch>     
+		</events>
+		<menu>
+			<customer>
+				<children>
+					<etipsecurity translate="title" module="etipsecurity">
+						<title>ET IP Security log</title>
+						<action>etipsecurity/adminhtml_log</action> 
+						<sort_order>300</sort_order>
+					</etipsecurity>
+				</children>
+			</customer>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<etipsecurity translate="title" module="etipsecurity">
+											<title>ET IP Security Section</title>
+											<sort_order>300</sort_order>
+										</etipsecurity>
+									</children>
+								</config>
+							</children>
+						</system>
+						<customer>
+							<children>
+								<etipsecurity translate="title" module="etipsecurity">
+									<title>ET IP Security log</title>
+									<sort_order>300</sort_order>
+								</etipsecurity>
+							</children>
+						</customer>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<translate>
+			<modules>
+				<ET_IpSecurity>
+					<files>
+						<default>ET_IpSecurity.csv</default>
+					</files>
+				</ET_IpSecurity>
+			</modules>
+		</translate>
+		<layout>
+			<updates>
+				<etipsecurity>
+					<file>et_ipsecurity.xml</file>
+				</etipsecurity>
+			</updates>
+		</layout>
+	</adminhtml>
+</config>

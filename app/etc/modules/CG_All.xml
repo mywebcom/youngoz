@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<config>
+     <modules>
+        <CG_Catalog>
+            <active>true</active>
+            <codePool>local</codePool>
+        </CG_Catalog>
+        <CG_Shippingx>
+        	<active>true</active>
+            <codePool>local</codePool>
+        </CG_Shippingx>
+        <CG_Aus>
+        	<active>true</active>
+        	<codePool>local</codePool>
+        </CG_Aus>
+        <CG_Paypal>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </CG_Paypal>
+     </modules>
+</config>

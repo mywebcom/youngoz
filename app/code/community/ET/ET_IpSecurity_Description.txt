@@ -1,0 +1,62 @@
+==== Description / Для чего этот модуль? ====
+
+EN:
+Extension allows to restrict access to website for visitors by IP or IP mask. 
+When blocking rule is applied user is redirected to selected CMS page or blank page. Also extension can notify website owner about blocked visitor by email.
+
+Second function: Allows to turn off frontend during maintenance operations.
+
+RU:
+Модуль позволяет ограничивать доступ к сайту посетителям по IP или по IP маскам. 
+При срабатывании правила перенаправляет посетителя на указанную CMS страницу или просто на пустую страницу. Также может оповестить владельца сайта о сработавшем правиле по е-майл.
+
+Доступна функция отключения сайта на техническое обслуживание. 
+
+
+====Features / Особенности модуля====
+
+EN:
+* Open Source
+* Separate white/black IP lists for frontend and admin panel
+* Website owner notification by e-mail about rejected attempt to access frontend or admin panel
+* 2 types of action when blocking rule is applied (Redirect to blank page or Redirect to selected CMS page)
+* HTTP response code when blocking - HTTP Error 403 - Forbidden: Access is denied
+* Editable templates for notification letters
+* Available languages for admin panel (en_US, ru_RU)
+* You can enter IP addresses or IP masks or IP ranges. You can add comment to each rule.
+	127.0.0.1|My address
+	10.*.*.*|internal company IPs
+	10.0.0.1-20.0.0.1|IP Ranges
+* Editable message (is shown to visitors during maintenance operations.)
+* List of blocked IPs is saving to database
+* You can view log of blocking in admin panel
+
+
+
+RU:
+* Open Source
+* Отдельные белые/чёрные списки IP для пользовательской части и панели администрирования
+* Оповещение владельца магазина по е-майл о сработавшем правиле блокировке
+* Два типа действи при срабатывании правила (Показ пустой страницы и Перенаправление на указанную CMS страницу)
+* Статус ответа на показываемой странице при блокировке - HTTP Error 403 - Forbidden: Access is denied
+* Редактируемые шаблоны писем оповещения
+* Доступные языки для панели администрирования (en_US, ru_RU)
+* Можно указывать как IP адреса, так и маски адресов и диапазоны IP адресов. К каждому правилу можно добавить комментарий.
+	127.0.0.1|My address
+	10.*.*.*|internal company IPs
+	10.0.0.1-20.0.0.1|IP Ranges
+* Редактируемое сообщение (показывается посетителям во время технических работ).
+
+* Сохранение в базе данных ИП адресов на которые сработала блокировка
+* Просмотр журнала блокировки в панели администрирования
+
+
+
+====Version Compatibility / Совместимость версий====
+1.3.х (tested in 1.3.2.4.)
+1.4.x (tested in 1.4.1.1.)
+1.5.x (tested in 1.5.0.1.)
+
+====Module tags:==== 
+ip security, disable access, maintenance, administration
+

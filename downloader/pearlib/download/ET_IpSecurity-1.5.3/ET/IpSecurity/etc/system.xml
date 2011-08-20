@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * ET Web Solutions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   ET
+ * @package    ET_IpSecurity
+ * @copyright  Copyright (c) 2010 ET Web Solutions (http://etwebsolutions.com)
+ * @contacts   support@etwebsolutions.com
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */ 
+ --> 
+
+<config>
+	<tabs>
+		<etall translate="label">
+			<label>ET Extensions</label>
+			<sort_order>400</sort_order>
+		</etall>
+	</tabs>
+
+	<sections>
+		<etipsecurity translate="label" module="etipsecurity">
+			<label>IP Security</label>
+			<tab>etall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>300</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<ipsecurityfront translate="label comment">
+					<label>IP Security - Frontend</label>   
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<allow translate="label comment">
+							<label>Allow these IPs</label>
+							<comment>Visitors with other IPs will be blocked.</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allow>
+						<block translate="label">
+							<label>Block these IPs</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block>
+						<redirect_blank translate="label comment">
+							<label>Redirect to blank page</label>
+							<comment>When blocking rule is applied visitor will be redirected to a blank page with blocking rule description.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</redirect_blank>
+						<redirect_page translate="label comment">
+							<label>Redirect to CMS page</label>
+							<comment>Visitor will not be notified about blocking rule redirection.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_cms_page</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</redirect_page>
+						<email_event translate="label comment">
+							<label>Mail block events to</label>
+							<comment>You can specify multiple recipients. Comma separated. For example: admin1@example.com, admin2@example.com</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_event>
+						<email_template translate="label">
+							<label>Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template>
+						<email_identity translate="label">
+							<label>Store email</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_identity>
+						<email_always translate="label comment">
+							<label>Email always</label>
+							<comment>Yes - mail notification will be sent every time when blocking rule applies. No - mail notification will be sent when IP is blocked for first time or blocking times divides by 10.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_always>
+					</fields>
+				</ipsecurityfront>
+				<ipsecurityadmin translate="label comment">
+					<label>IP Security - Admin</label>   
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<allow translate="label comment">
+							<label>Allow these IPs</label>
+							<frontend_type>textarea</frontend_type>
+							<comment>Be careful not to lock yourself out!</comment>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allow>
+						<block translate="label">
+							<label>Block these IPs</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block>
+						<redirect_blank translate="label comment">
+							<label>Redirect to blank page</label>
+							<comment>When blocking rule is applied visitor will be redirected to a blank page with blocking rule description.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</redirect_blank>
+						<redirect_page translate="label">
+							<label>Redirect to CMS page</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_cms_page</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</redirect_page>
+						<email_event translate="label comment">
+							<label>Mail block events to</label>
+							<comment>You can specify multiple recipients. Comma separated. For example: admin1@example.com, admin2@example.com</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_event>
+						<email_template translate="label">
+							<label>Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template>
+						<email_identity translate="label">
+							<label>Store email</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_identity>
+						<email_always translate="label comment">
+							<label>Email always</label>
+							<comment>Yes - mail notification will be sent every time when blocking rule applies. No - mail notification will be sent when IP is blocked for first time or blocking times divides by 10.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_always>
+					</fields>
+				</ipsecurityadmin>
+
+				<ipsecuritymaintetance translate="label comment">
+					<label>IP Security - Maintenance page</label>   
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Store Offline</label>
+							<comment>For frontend only.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled> 
+						<except translate="label comment">
+							<label>Except these IPs</label>
+							<frontend_type>textarea</frontend_type>
+							<comment>Visitors with these IPs will not be redirected to maintenance page.</comment>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</except>
+						<message translate="label">
+							<label>Message</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+						<remindermessage translate="label">
+							<label>Reminder message</label>
+							<comment>This message will be shown on frontend for visitors with IP adresses from exception list while maintenance mode is on.</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</remindermessage>
+					</fields>
+				</ipsecuritymaintetance>
+			</groups>
+		</etipsecurity>
+	</sections>
+</config>

@@ -1,0 +1,41 @@
+This file describes changes between versions of module ET_IpSecurity for Magento.
+
+Legend:
+* bug fix
++ added functionality
+- removed functionality
+
+TODO and some thoughts:
+  + integrate anti spam service http://www.projecthoneypot.org/
+
+=====================================
+ver. 1.5.3 (06/06/2011)
+* minor bug fixes (variable initializing)
+
+ver. 1.5.2
++ added ability to use IP ranges (Example: 10.0.0.1-20.0.0.1|IP Range)
+
+ver. 1.5.1
+* resolved infinite loop when admin block rule happens and option "Add Store Code to Urls" = Yes and redirect to CMS page is on.
+
+ver. 1.5.0
++ added table to database to store blocked ip's
++ added log grid in admin
++ added option: send notification every time on block or only on first
+
+ver. 1.2.0
++ changed code pool from local to community
++ changed settings section
++ added maintenance page function
+
+ver. 1.1.0
+* added Helper (without it Transactional Mails - Add New Template wash't working) - actual for Magento ver. 1.4.õ
+
+ver. 1.0.9
++ can add comments to IP's
++ notify by e-mail if block rule happens (e-mail templates editable)
++ http response status 403
+* rule templates processing error
+
+ver. 0.1.0
++ stable release

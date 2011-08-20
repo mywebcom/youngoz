@@ -1,0 +1,65 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $count = count($this->getItemCollection()->getItems()) ?>
+<?php if($count): ?>
+<div class="box base-mini up-sell">
+    <div class="head">
+    	<div class="recent-title-bar">
+    		<div class="recent-title-bar-right">
+    			<div class="recent-title-bar-left">
+    				<h4><?php echo $this->__('Bought Together') ?></h4>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="content">
+    	<div class="block-content">
+			    <div class="border-right">
+			    	<div class="border-left">
+			    		<div class="corner-left-bot">
+			    			<div class="corner-right-bot">
+			    				<ul id="upsell-product-sidebar" class="clearfix">
+							    <?php // $this->setColumnCount(4); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
+							    <?php $this->resetItemsIterator() ?>
+							    <?php for($_i=0;$_i<$count;$_i++): ?>
+							        <li>
+							            <?php if($_link=$this->getIterableItem()): ?>
+							            <a href="<?php echo $_link->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_link, 'small_image')->resize(50,50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_link->getName()) ?>" /></a>
+							            <?php echo $this->getPriceHtml($_link, true) ?>
+							            <?php endif?>
+							        </li>
+							    <?php endfor; ?>
+							    </ul>
+			    			</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    </div>
+    
+</div>
+<?php endif ?>

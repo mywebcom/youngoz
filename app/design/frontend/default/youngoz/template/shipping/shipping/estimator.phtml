@@ -1,0 +1,44 @@
+<div class="shipping_estimator">
+	<div>Please enter your postcode below to calculate postage:</div>
+	<div class="relative">
+		<input type="text" id="postcode" name="postcode" size="6" maxlength="4" />
+		<button class="button" onClick="loadEstimatedPostage()">
+			<span><span>Calculate</span></span>
+		</button>
+		<div id="postage_area"></div>
+	</div>
+
+
+<script src="<?php echo $this->getJsUrl() ?>mage/adminhtml/loader.js" type="text/javascript"></script>
+
+<div id="loadingmask" style="display: none;">
+	<div class="loader" id="loading-mask-loader">
+		<img src="<?php echo str_replace("index.php/","",$this->getUrl()) ?>skin/adminhtml/default/default/images/ajax-loader-tr.gif" alt="<?php echo $this->__('Loading...') ?>"/><?php echo $this->__('Loading...') ?>
+	</div>
+	<div id="loading-mask"></div>
+</div>
+<script type="text/javascript">
+	var FORM_KEY="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>";
+	function loadEstimatedPostage(){
+		var reloadurl = '<?php echo $this->getUrl('shippingx/ajax/estimate') ?>';
+		var qty = $('qty').value;
+		var productId = $('productId').value;
+		if(qty.length == 0){
+			qty = 1;
+		}else{
+			qty = parseInt(qty);
+		}
+		Element.show('loadingmask');
+		new Ajax.Request(reloadurl,{
+				method: 'post',
+				parameters: {form_key:FORM_KEY,qty:qty,zip:$('postcode').value,pid:productId},
+				onComplete: function(transport) {
+							Element.hide('loadingmask');
+							$('postage_area').innerHTML = "";
+							$('postage_area').innerHTML = transport.responseText;
+						}
+			});
+		return false;
+	}
+</script>
+</div>

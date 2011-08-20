@@ -1,0 +1,80 @@
+<?php
+/*********************************************************************************
+ * Copyright 2009 Priacta, Inc.
+ * 
+ * This software is provided free of charge, but you may NOT distribute any
+ * derivative works or publicly redistribute the software in any form, in whole
+ * or in part, without the express permission of the copyright holder.
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *********************************************************************************/
+
+$config = Mage::getSingleton('pap/config');
+?>
+<div class="page-head">
+    <h3><?php echo $this->__('Login to Your Affiliate Account') ?></h3>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $config->getRemotePath(); ?>/affiliates/login.php" method="post" id="form-validate">
+
+<?php if(array_key_exists('cumulativeErrorMessage', $_POST) && $_POST['cumulativeErrorMessage'] != '') { ?>
+    <fieldset class="group-select wide" style="color: #ff0000;">
+        <h4 class="legend"><?php echo $this->__('There were errors') ?></h4>
+        <li>
+            <?php echo $_POST['cumulativeErrorMessage']?>
+        </li>
+    </fieldset>
+<?php } ?>
+
+<div class="col2-set">
+  <div class="col-1" style="float:none; margin:auto;">
+    <fieldset class="group-select">
+        <h4 class="legend"><?php echo $this->__('Login') ?></h4>
+            <ul>
+                <li>
+                    <div class="input-box">
+                        <label for="username"><?php echo $this->__('Username (Email)') ?></label><br/>
+                        <input type="text" name="username" id="username" value="<?php echo $this->htmlEscape($this->getFormData()->getUsername()) ?>" title="<?php echo $this->__('Username (Email)') ?>" class="validate-email required-entry input-text" />
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                        <label for="firstname"><?php echo $this->__('Password') ?></label><br/>
+                        <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry input-text" />
+                    </div>
+                </li>
+                <li>
+                    <div style="display:inline-block;">
+                    <input type="checkbox" name="rememberMe" value="Y" title="<?php echo $this->__('Remember Me on This Computer') ?>" value="1" id="rememberMe" <?php if($this->getFormData()->getRememberme() == "Y"): ?> checked="checked"<?php endif ?>/>
+                    <label for="rememberMe"><?php echo $this->__('Remember Me on This Computer') ?></label><br/>
+                    </div>
+                </li>
+
+            </ul>
+        <button type="button" class="form-button" onclick="dataForm.submit()"><span><?php echo $this->__('Login') ?></span></button>
+        
+    </fieldset>
+  </div>
+</div>
+
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    dataForm.submit = function(){
+            if (this.validator.validate()) {
+                    this.form.submit();
+            }
+    }.bind(dataForm);
+//]]>
+</script>
+

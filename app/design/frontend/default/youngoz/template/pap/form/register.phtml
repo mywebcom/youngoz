@@ -1,0 +1,195 @@
+<?php
+/*********************************************************************************
+ * Copyright 2009 Priacta, Inc.
+ * 
+ * This software is provided free of charge, but you may NOT distribute any
+ * derivative works or publicly redistribute the software in any form, in whole
+ * or in part, without the express permission of the copyright holder.
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *********************************************************************************/
+
+$config = Mage::getSingleton('pap/config');
+?>
+<div class="page-head">
+    <h3><?php echo $this->__('Create an Affiliate Account') ?></h3>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php /* This looks wrong. I don't think a_aid should be there
+ <form action="<?php echo $config->getRemotePath(); ?>/signup.php?a_aid=11111111" method="post" id="form-validate">
+*/ ?>
+<?php
+function br2nl($string)
+{
+    return preg_replace('/\<br(\s*)?\/?\>/i', "\n", $string);
+}
+?>
+<?php if((array_key_exists('successMessage', $_POST) && $_POST['successMessage'] != '') ||
+         (array_key_exists('successMessage', $_POST) && array_key_exists('cumulativeErrorMessage', $_POST) && trim(br2nl($_POST['cumulativeErrorMessage'])) == '')) { ?>
+    <fieldset class="group-select wide" style="color: #ff0000;">
+        <h4 class="legend"><?php echo $this->__('Account Created') ?></h4>
+        <ul>
+          <li>
+              Your Affiliate Account has been created. Once your account is approved an email will be sent with your password and login instructions.
+          </li>
+          <li>
+              <a href="<?php echo $config->getRemotePath(); ?>/affiliates/login.php#login">Go to the login page</a>
+          </li>
+        </ul>
+    </fieldset>
+<?php } else { ?>
+<form action="<?php echo $config->getRemotePath(); ?>/affiliates/signup.php" method="post" id="form-validate">
+
+<?php if(array_key_exists('cumulativeErrorMessage', $_POST) && trim(br2nl($_POST['cumulativeErrorMessage'])) != '') { ?>
+    <fieldset class="group-select wide" style="color: #ff0000;">
+        <h4 class="legend"><?php echo $this->__('There were errors') ?></h4>
+        <ul>
+          <li>
+              <?php echo $_POST['cumulativeErrorMessage']?>
+          </li>
+        </ul>
+    </fieldset>
+<?php } ?>
+
+<div class="col2-set">
+  <div class="col-1">
+    <fieldset class="group-select">
+        <h4 class="legend"><?php echo $this->__('Personal Information') ?></h4>
+            <ul>
+                <li>
+                    <div class="input-box">
+                        <label for="username"><?php echo $this->__('Username (Email)') ?> <span class="required">*</span></label><br/>
+                        <input type="text" name="username" id="username" value="<?php echo $this->htmlEscape($this->getFormData()->getUsername()) ?>" title="<?php echo $this->__('Username (Email)') ?>" class="validate-email required-entry input-text" />
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                        <label for="firstname"><?php echo $this->__('First Name') ?> <span class="required">*</span></label><br/>
+                        <input type="text" name="firstname" id="firstname" value="<?php echo $this->htmlEscape($this->getFormData()->getFirstname()) ?>" title="<?php echo $this->__('First Name') ?>" class="required-entry input-text" />
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                        <label for="lastname"><?php echo $this->__('Last Name') ?> <span class="required">*</span></label><br/>
+                        <input type="text" name="lastname" id="lastname" value="<?php echo $this->htmlEscape($this->getFormData()->getLastname()) ?>" title="<?php echo $this->__('Last Name') ?>" class="required-entry input-text" />
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                      <label for="data1"><?php echo $this->__('Web Url') ?> <span class="required">*</span></label><br/>
+                      <input type="text" name="data1" id="data1" value="<?php echo $this->htmlEscape($this->getFormData()->getData1()) ?>" class="required-entry input-text">
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                      <label for="data2"><?php echo $this->__('Company name') ?> <span class="required">*</span></label><br/>
+                      <input type="text" name="data2" id="data2" value="<?php echo $this->htmlEscape($this->getFormData()->getData2()) ?>" class="required-entry input-text">
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                        <label for="refid"><?php echo $this->__('Referral ID') ?></label><br/>
+                        <input type="text" name="refid" id="refid" value="<?php echo $this->htmlEscape($this->getFormData()->getRefid()) ?>" title="<?php echo $this->__('Referral ID') ?>" class="input-text" />
+                        <p>Referral ID can be 20 characters long and is used in affiliate links.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-box">
+                      <label for="data10"><?php echo $this->__('Tax SSN') ?> <span class="required">*</span></label><br/>
+                      <input type="text" name="data10" id="data10" value="<?php echo $this->htmlEscape($this->getFormData()->getData10()) ?>" class="required-entry input-text">
+                      <p>This is the Social Security number, or other Tax ID. It is required for tax purposes in some countries.</p>
+                    </div>
+                </li>
+            </ul>
+    </fieldset>
+  </div>
+  <div class="col-2">
+    <fieldset class="group-select">
+        <h4 class="legend"><?php echo $this->__('Additional Information') ?></h4>
+        <ul>
+          <li>
+              <div class="input-box">
+                <label for="data3"><?php echo $this->__('Street') ?> <span class="required">*</span></label><br/>
+                <input type="text" name="data3" id="data3" value="<?php echo $this->htmlEscape($this->getFormData()->getData3()) ?>" class="required-entry input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data4"><?php echo $this->__('City') ?> <span class="required">*</span></label><br/>
+                <input type="text" name="data4" id="data4" value="<?php echo $this->htmlEscape($this->getFormData()->getData4()) ?>" class="required-entry input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data5"><?php echo $this->__('State') ?> <span class="required">*</span></label><br/>
+                <input type="text" name="data5" id="data5" value="<?php echo $this->htmlEscape($this->getFormData()->getData5()) ?>" class="required-entry input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data6"><?php echo $this->__('Country') ?></label><br/>
+                <input type="text" name="data6" id="data6" value="<?php echo $this->htmlEscape($this->getFormData()->getData6()) ?>" class="input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data7"><?php echo $this->__('Zipcode') ?></label><br/>
+                <input type="text" name="data7" id="data7" value="<?php echo $this->htmlEscape($this->getFormData()->getData7()) ?>" class="input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data8"><?php echo $this->__('Phone') ?></label><br/>
+                <input type="text" name="data8" id="data8" value="<?php echo $this->htmlEscape($this->getFormData()->getData8()) ?>" class="input-text">
+              </div>
+          </li>
+          <li>
+              <div class="input-box">
+                <label for="data9"><?php echo $this->__('Fax') ?></label><br/>
+                <input type="text" name="data9" id="data9" value="<?php echo $this->htmlEscape($this->getFormData()->getData9()) ?>" class="input-text">
+              </div>
+          </li>
+        </ul>
+    </fieldset>
+  </div>
+</div>
+
+<fieldset class="group-select wide" style="text-align: center">
+    <h4 class="legend"><?php echo $this->__('Terms & Conditions') ?></h4>
+    <ul>
+      <li>
+        <textarea cols="50" rows="10"><?php echo $config->getTerms(); ?></textarea>
+      </li>
+      <li>
+          <div style="display:inline-block;">
+          <input type="checkbox" name="agreeWithTerms" value="Y" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="agreeWithTerms" <?php if($this->getFormData()->getAgreewithterms() == "Y"): ?> checked="checked"<?php endif ?> class="required-entry"/>
+          <label for="agreeWithTerms"><?php echo $this->__('I have read and agree to the Terms & Conditions') ?></label> <span class="required">*</span><br/>
+          </div>
+      </li>
+    </ul>
+    
+    <button type="button" class="form-button" onclick="dataForm.submit()"><span><?php echo $this->__('Signup') ?></span></button>
+    <input type="hidden" name="errorUrl" value="<?php echo Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, true)."pap/account/create/"; // return here on error ?>">
+</fieldset>
+
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    dataForm.submit = function(){
+            if (this.validator.validate()) {
+                    this.form.submit();
+            }
+    }.bind(dataForm);
+//]]>
+</script>
+<?php } ?>
