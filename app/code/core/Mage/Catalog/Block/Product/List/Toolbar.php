@@ -370,7 +370,8 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Page_Block_Html_Pager
         if ($mode && isset($this->_availableMode[$mode])) {
             return $mode;
         }
-        return current(array_keys($this->_availableMode));
+        $arrayKeys = array_keys($this->_availableMode);
+        return current($arrayKeys); 
     }
 
     /**

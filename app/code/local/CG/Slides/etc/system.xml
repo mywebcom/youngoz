@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mywebcom translate="label">
+            <label>MyWebCom Extensions</label>
+            <sort_order>200</sort_order>
+        </mywebcom>
+    </tabs>
+    
+	<sections>
+        <slides translate="label" module="slides">
+            <label>Slides</label>
+            <tab>mywebcom</tab>
+            <sort_order>1</sort_order>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<homepage translate="label">
+					<label>Homepage Options</label>
+					<frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <home_page_slide_interval>
+                        	<label>Slides show interval</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_page_slide_interval>
+                        <home_page_hover_pause>
+                        	<label>Slides hover pause enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_page_hover_pause>
+                        <home_page_slide_pause_interval>
+                        	<label>Slides pause interval</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home_page_slide_pause_interval>
+                    </fields>            	
+            	</homepage>
+            </groups>
+        </slides>  
+    </sections>
+</config>

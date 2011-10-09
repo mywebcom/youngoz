@@ -1,4 +1,4 @@
-/**
+	/**
 * Magento
 *
 * NOTICE OF LICENSE
@@ -339,7 +339,7 @@ table.view-by strong {color:#58D703}
 /************************************************************/
 .product-shop{float:right;}
 .product-shop .sku{position:relative;left:20px;}
-.out-of-stock{height:18px;padding-top:3px;color:#D83820;font-weight:bold;display:block;height:43px;line-height:43px;text-align:center}
+.out-of-stock{height:18px;padding-top:3px;color:#D83820;font-weight:bold;display:block;height:43px;text-align:center}
 .product-shop .short-description{width:100%;overflow:hidden;margin-bottom:10px;line-height:18px}
 /********************** Rating */
 .ratings{margin:7px 0;line-height:1em;}
@@ -471,6 +471,14 @@ a.minimal-price-link .price{font-weight:normal;color:#1e7ec8;}
 .recently .add-to{margin-top:5px;font-size:11px;}
 table.recently-list{width:100%;}
 table.recently-list td{width:20%;}
+/** slides **/
+#slides {margin-bottom:25px}
+.slides_container{height:321px;overflow:hidden}
+.slides_container div{width:741px;height:321px;display:block}
+.pagination{display:inline;float:right;position:relative;top:5px;right:10px}
+.pagination li{float: left;margin: 0 1px}
+.pagination li a{background-image:url(../images/pagination.png);background-position: 0 0;display: block;float: left;height: 0;overflow: hidden;padding-top: 12px;width: 12px}
+.pagination li.current a{background-position: 0 -12px}
 /********************** Search */
 .advanced-search{margin:28px 0;border:1px solid #bbafa0;padding:22px 25px 12px 25px;background:#fbfaf6;}
 .advanced-search .legend{margin-top:-33px;float:left;border:1px solid #f19900;background:#F9F3E3;padding:0 8px;color:#E76200;font-weight:bold;font-size:1.1em;}
@@ -643,12 +651,21 @@ dl.item-options dd{padding-left:10px;}
 .product-review-box th{text-align:center;}
 .product-review-box td.label{width:100px;text-align:left;}
 /* Product Detail sidebar */
-.mini-related-items .product-images{width:72px;}
-.mini-related-items .product-images a{display:block;margin-left:20px;}
+.mini-related-items {margin-top:20px}
+.mini-related-items .corner-right-bot {padding:20px}
+.mini-related-items .product-images{height:110px;width:110px}
+.mini-related-items .product-images a{display:block}
+.mini-related-items .product-images a img {border:none}
 .mini-related-items .product-images input{float:left;/*margin-right:4px;margin-left:-6px;*/}
 .mini-related-items .product-images .checkbox-container{float:left;width:15px;}
 .mini-related-items .product-details{margin-left:80px;padding-left:5px;}
-.mini-related-items ol li{padding-left:0;padding-right:0;}
+.mini-related-items ol li{padding-left:0;padding-right:0; border-bottom:1px solid #DCDCDC;padding:15px 0;height:100px}
+.mini-related-items ol li div {float:left}
+.mini-related-items ol li.last {border-bottom:none}
+.mini-related-items .product-title {width:180px}
+.mini-related-items .product-qty {width:80px}
+.mini-related-items .product-price {width:200px}
+.mini-related-items .product-addcart {width:120px}
 /********************** Checkout */
 select.address-select{width:630px;}
 .shipment-methods dd{margin-bottom:13px;}
@@ -1051,7 +1068,7 @@ table.print .price-incl-tax .price{display:inline;}
 /** shop by **/
 .shopby-title-bar {background:url(../images/sidebar_block_top.jpg) repeat-x left top}
 .shopby-title-bar-left {background:url(../images/sidebar_block_corner_left_top.jpg) no-repeat left top;height:40px;text-indent:15px;line-height:40px;color:#FFFFFF}
-.shopby-title-bar-right {background:url(../images/sidebar_block_corner_right_top.jpg) no-repeat right top}
+.shopby-title-bar-right {height:100%;background:url(../images/sidebar_block_corner_right_top.jpg) no-repeat right top}
 .shopby-title-bar h2 {color:#FFFFFF;height:35px;line-height:35px;font-size:16px}
 /** class **/
 .center { text-align:center}
@@ -1204,5 +1221,5 @@ table.print .price-incl-tax .price{display:inline;}
 #contactForm .group-select {padding:0;line-height:25px}
 .contacts-index-index .corner-right-top {padding:10px 20px}
 .contacts-index-index .sp {margin-top:10px}
-.IE7 .middle  {min-height:600px;height:600px}
 .pickup-info {background:transparent url(../images/youngoz-pickup.gif) no-repeat left top; display:block; width:140px;height:77px;position:absolute; right:5px; top:60px}
+.IE7 .middle  {min-height:600px;height:600px}

@@ -213,7 +213,7 @@ Product view
                 <block type="catalog/product_view_attributes" name="product.attributes" as="additional" template="catalog/product/view/attributes.phtml"/>
                 <block type="catalog/product_view" name="product.info.addto" as="addto" template="catalog/product/view/addto.phtml"/>
                 <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
-				<block type="core/template" name="shipping.estimator" as="estimator" template="shipping/shipping/estimator.phtml" />
+				<block type="catalog/product_view" name="shipping.estimator" as="estimator" template="shipping/shipping/estimator.phtml" />
 				
                 <block type="catalog/product_view" name="product.info.options.wrapper" as="product_options_wrapper" template="catalog/product/view/options/wrapper.phtml">
                     <block type="core/template" name="options_js" template="catalog/product/view/options/js.phtml"/>
@@ -246,9 +246,9 @@ Product view
                	<action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
                	<action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
             </block>
+            <block type="catalog/product_list_related" name="catalog.product.related" template="relatedproduct/related.phtml"/>
         </reference>
         <reference name="right">
-            <block type="catalog/product_list_related" name="catalog.product.related" template="catalog/product/list/related.phtml"/>
       		<block type="catalog/product_list_upsell" name="product.info.upsell" as="upsell_products" template="catalog/product/list/upsellsidebar.phtml">
                     <action method="setColumnCount"><columns>8</columns></action>
                     <action method="setItemLimit"><type>upsell</type><limit>8</limit></action>

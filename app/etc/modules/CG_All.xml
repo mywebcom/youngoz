@@ -20,5 +20,9 @@
                 <Mage_Payment />
             </depends>
         </CG_Paypal>
+        <CG_Slides>
+        	<active>true</active>
+            <codePool>local</codePool>
+        </CG_Slides>
      </modules>
 </config>

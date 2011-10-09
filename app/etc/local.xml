@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[youngoz]]></username>
-                    <password><![CDATA[nohack]]></password>
-                    <dbname><![CDATA[youngoz]]></dbname>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[]]></password>
+                    <dbname><![CDATA[cg-youngoz]]></dbname>
                     <active>1</active>
                 </connection>
             </default_setup>
