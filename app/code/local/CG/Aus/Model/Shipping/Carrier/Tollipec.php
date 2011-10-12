@@ -28,9 +28,9 @@ class CG_Aus_Model_Shipping_Carrier_Tollipec
                 }
 				
                 if(!array_key_exists($location, $totalWeight)){
-                	$totalWeight[$location] = 0;
+                	$totalWeight[$location] = array();
                 }
-                $totalWeight[$location] += $item->getWeight()*$item->getQty();
+                $totalWeight[$location][]= $item;
             }
         }
        
@@ -80,46 +80,58 @@ class CG_Aus_Model_Shipping_Carrier_Tollipec
 		$shippingPrice = 0;
 		$shippingPriceGstIncluded = $handling;
 		$dst = $this->getZone($postcode);
-		foreach($totalWeight as $orig => $weight){
+		$max = 0;
+		foreach($totalWeight as $orig => $items){
 			//if item ship from mel to mel or syd to syd, use local calculation method
-			if(($dst == 'MEL' || $dst == 'SYD') && $dst == $orig){
-				switch($dst){
-					case 'MEL':
-						if($weight < 25){
-							$shippingPrice += 6.17;
-						}
-						if($weight >= 25 && $weight < 50){
-							$shippingPrice += 12.33;
-						}
-						if($weight >= 50 && $weight <75){
-							$shippingPrice += 18.49;
-						}
-						if($weight >=75 && $weight < 100){
-							$shippingPrice += 24.65;
-						}						
-						break;
-					case 'SYD':
-						if($weight < 25){
-							$shippingPrice += 5.5;
-						}
-						if($weight >= 25 && $weight < 50){
-							$shippingPrice += 11;
-						}
-						if($weight >= 50 && $weight <75){
-							$shippingPrice += 16.5;
-						}
-						if($weight >=75 && $weight < 100){
-							$shippingPrice += 22;
-						}
-						break;
-					default:
-						break;
+			$weight = 0;
+			foreach($items as $item){
+				$weight = $item->getWeight()*$item->getQty();	
+				if(($dst == 'MEL' || $dst == 'SYD') && $dst == $orig){
+					switch($dst){
+						case 'MEL':
+							if($weight < 25){
+								$cost = 6.17;
+							}
+							if($weight >= 25 && $weight < 50){
+								$cost = 12.33;
+							}
+							if($weight >= 50 && $weight <75){
+								$cost = 18.49;
+							}
+							if($weight >=75 && $weight < 100){
+								$cost = 24.65;
+							}						
+							break;
+						case 'SYD':
+							if($weight < 25){
+								$cost = 5.5;
+							}
+							if($weight >= 25 && $weight < 50){
+								$cost = 11;
+							}
+							if($weight >= 50 && $weight <75){
+								$cost = 16.5;
+							}
+							if($weight >=75 && $weight < 100){
+								$cost = 22;
+							}
+							break;
+						default:
+							break;
+					}
+				}else{
+					$rs = $this->getChargeInfo($orig,$dst);
+					$cost = ($weight*$rs['charge_per_kg'] + $rs['basic_charge'])*(1+$surcharge/100);
 				}
-			}else{
-				$rs = $this->getChargeInfo($orig,$dst);
-				$shippingPrice += ($weight*$rs['charge_per_kg'] + $rs['basic_charge'])*(1+$surcharge/100);
+				if($cost > $max){
+					$max = $cost;
+					$maxItem = $item;
+				}
+				$shippingPrice += $cost;
 			}
 		}
+		var_dump($max/$maxItem->getQty());
+		$shippingPrice = ($shippingPrice - ($max/$maxItem->getQty()))/2 + $max/$maxItem->getQty();
 		return round($shippingPrice*1.1 + $shippingPriceGstIncluded,2);
 	}
 

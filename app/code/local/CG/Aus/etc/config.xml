@@ -11,6 +11,17 @@
     			<class>CG_Aus_Model</class>
     		</aus>
     	</models>
+    	<events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <cartobserver>
+                        <type>singleton</type>
+                        <class>CG_Aus_Model_Cart_Observer</class>
+                        <method>setAddToCartAfter</method>
+                    </cartobserver>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
     </global>
     <default>
     	<carriers>

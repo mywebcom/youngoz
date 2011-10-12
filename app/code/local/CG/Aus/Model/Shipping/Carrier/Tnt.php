@@ -36,9 +36,9 @@ class CG_Aus_Model_Shipping_Carrier_Tnt
                 }
 				
                 if(!array_key_exists($location, $totalWeight)){
-                	$totalWeight[$location] = 0;
+                	$totalWeight[$location]= array();
                 }
-                $totalWeight[$location] += $item->getWeight()*$item->getQty();
+                $totalWeight[$location][] = $item;
             }
         }
         try {
@@ -87,24 +87,36 @@ class CG_Aus_Model_Shipping_Carrier_Tnt
 		$shippingPrice = 0;
 		$shippingPriceGstIncluded = $handling;
 		$dst = $this->getZone($postcode);
-		foreach($totalWeight as $orig => $weight){
+		$max = 0;
+		foreach($totalWeight as $orig => $items){
 			$rate = $this->getRate($orig, $dst);
 			$rs = $this->getChargeInfo($rate);
 			$basic_charge = $rs['basic_charge'];
 			$charge_per_kg = $rs['charge_per_kg'];
 			$charge_per_kg_tas = $rs['charge_per_kg_tas'];
-			if($weight > 10){
-				$extra_kg =  $weight - 10;
-				if($dst == 'TA1' || $dst == 'TA2'){
-					$charge_rate = $charge_per_kg_tas;
+			foreach($items as $item){
+				$weight = $item->getWeight()*$item->getQty();
+				if($weight > 10){
+					$extra_kg =  $weight - 10;
+					if($dst == 'TA1' || $dst == 'TA2'){
+						$charge_rate = $charge_per_kg_tas;
+					}else{
+						$charge_rate = $charge_per_kg;
+					}
+					$cost = $basic_charge + ($extra_kg*$charge_rate);
 				}else{
-					$charge_rate = $charge_per_kg;
+					$cost = $basic_charge;
 				}
-				$shippingPrice += $basic_charge + ($extra_kg*$charge_rate);
-			}else{
-				$shippingPrice += $basic_charge;
+				//test max
+				if($cost > $max){
+					$max = $cost;
+					$maxItem = $item;
+				}
+				$shippingPrice += $cost;
 			}
 		}
+		//divide to 2
+		$shippingPrice = ($shippingPrice - ($max/$maxItem->getQty()))/2 + $max/$maxItem->getQty();
 		return round($shippingPrice*(1+$surcharge)*1.1 + $shippingPriceGstIncluded,2);
 	}
 	

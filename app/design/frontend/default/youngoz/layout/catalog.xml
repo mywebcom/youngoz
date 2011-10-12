@@ -56,13 +56,11 @@ Default layout, loads most of the pages
             <block type="catalog/navigation" name="catalog.special" template="catalog/navigation/special.phtml"/>
             -->
             <block type="core/template" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
-      		<!--
       		<block type="core/template" name="left.permanent.callout" template="callouts/left_col.phtml">
-                <action method="setImgSrc"><src>images/media/giftidea.jpg</src></action>
-                <action method="setImgAlt" translate="alt" module="catalog"><alt>Gift idea for your special people and important occasions. </alt></action>
-                <action method="setLinkUrl"><url>gift-idea.html</url></action>
+                <action method="setImgSrc"><src>images/shippinginfo.gif</src></action>
+                <action method="setImgAlt" translate="alt" module="catalog"><alt>Great Shipping Deals</alt></action>
+                <action method="setLinkUrl"><url>shipping-info</url></action>
             </block>
-            -->
         </reference>
         <reference name="right">
             <!-- 
