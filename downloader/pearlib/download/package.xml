@@ -3,118 +3,192 @@
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
- <name>ET_IpSecurity</name>
+ <name>BusinessDecision_Interaktingslider</name>
  <channel>connect.magentocommerce.com/community</channel>
- <summary>Extension allows to restrict access to website for visitors by IP, IP mask or IP range. Also allows to turn off frontend during maintenance operations.</summary>
- <description>Extension allows to restrict access to website for visitors by IP, IP mask or IP range. 
-When blocking rule is applied user is redirected to selected CMS page or blank page. Also extension can notify website owner about blocked visitor by email.
+ <summary>This module gives you the ability to add a slideshow of CMS content on your home page for each Store Views.</summary>
+ <description>OVERVIEW English:
+=================================
+This module allows you to add ability to show a slider of CMS Slides on home page of each Store Views.
 
-Second function: Allows to turn off frontend during maintenance operations.</description>
+CMS Slides can add/remove/edit/preview/place from admin panel with information: Name, Store View, Status, From Time, To Time, and Content.
+
+Slider can be skined. It switches images automatically or manually, with delay and effect and that can be filled up in admin.
+
+USAGE
+
+To add this CMS Slideshow on home page, you have to put this line of code in homepage cms in admin:
+----------------------------------------------------------------------
+{{block type=&quot;interaktingslider/interaktingslider&quot; name=&quot;interaktingslider&quot;}}
+----------------------------------------------------------------------
+
+Also, you can place this CMS Slideshow on any page of your Magento store by using in your layout.
+
+You can send a message to the developer of this extension at this address: contact.magento-fr@interakting.com
+
+OVERVIEW Français :
+=========================================
+Ajouter un carrousel de diapositives ou diaporama dans les pages de votre magasin.
+Cette extension vous donne la possibilité d’ajouter un diaporama avec des diapositives CMS dans vos différentes vues magasins. Ce diaporama est administrable en Back Office. Vous pouvez ainsi :
+- Spécifier le nombre de diapositives à afficher,
+- Choisir l’ordre d’affichage des diapositives,
+- Activer ou non l’affichage des diapositives,
+- Disposer d’un éditeur Wysiwyg pour la création de diapositive,
+- Choisir les effets de transition entre les diapositives,
+- Paramétrer la durée d’affichage des diapositives ainsi que la durée de l’effet,
+- Spécifier le type de défilement des diapositives (manuel, automatique ou les deux),
+- Changer le thème du diaporama,
+- Choisir d’ajouter le carrousel sur n’importe quelle page de votre magasin (utiliser dans votre layout)
+- Etc.
+Le tout, simplement en ajoutant le code ci-dessous dans votre bloc CMS depuis l’administration :
+----------------------------------------------------------------------
+{{block type=&quot;interaktingslider/interaktingslider&quot; name=&quot;interaktingslider&quot;}}
+----------------------------------------------------------------------
+Le développement de cette extension a été réalisé par la société Business &amp; Decision dans le cadre de ses projets, notamment Opus Focus (Litto Color).
+Nous sommes dans l’attente de vos éventuelles suggestions afin de faire évoluer cette extension.
+Vous pouvez contacter ainsi le responsable du développement de cette extension à l’adresse suivante : contact.magento-fr@interakting.com </description>
  <lead>
-  <name>Jurij</name>
-  <user>niro</user>
-  <email>support@etwebsolutions.com</email>
+  <name>Interakting.com</name>
+  <user>interakting</user>
+  <email>contact.magento-fr@interakting.com</email>
   <active>yes</active>
  </lead>
- <developer>
-  <name>Andrej</name>
-  <user>zlojd</user>
-  <email>support@etwebsolutions.com</email>
-  <active>yes</active>
- </developer>
- <date>2011-06-07</date>
- <time>05:39:17</time>
+ <date>2010-06-29</date>
+ <time>10:11:28</time>
  <version>
-  <release>1.5.3</release>
-  <api>1.5.3</api>
+  <release>1.0.6</release>
+  <api>1.0.6</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
- <license uri="http://opensource.org/licenses/afl-3.0.php">AFL v3.0</license>
- <notes>stable release</notes>
+ <license>OSL 3.0</license>
+ <notes>Stable</notes>
  <contents>
   <dir name="/">
-   <dir name="adminhtml">
-    <dir name="default">
-     <dir name="default">
-      <dir name="layout">
-       <file md5sum="3e677b0e6fffcfb90d1d03dd7bc8daa8" name="et_ipsecurity.xml" role="magedesign" />
-      </dir> <!-- /adminhtml/default/default/layout -->
-     </dir> <!-- /adminhtml/default/default -->
-    </dir> <!-- /adminhtml/default -->
-   </dir> <!-- /adminhtml -->
-   <dir name="en_US">
-    <dir name="template">
-     <dir name="email">
-      <file md5sum="2b67f7f1bc21e003da6246fe76462af4" name="et_ipsecurity.html" role="magelocale" />
-      <file md5sum="2b67f7f1bc21e003da6246fe76462af4" name="et_ipsecurity_admin.html" role="magelocale" />
-     </dir> <!-- /en_US/template/email -->
-    </dir> <!-- /en_US/template -->
-    <file md5sum="26e22ba736a937422cfc1755670e71a8" name="ET_IpSecurity.csv" role="magelocale" />
-   </dir> <!-- /en_US -->
-   <dir name="ET">
-    <dir name="IpSecurity">
+   <dir name="BusinessDecision">
+    <dir name="Interaktingslider">
      <dir name="Block">
-      <dir name="Adminhtml">
-       <dir name="Log">
-        <file md5sum="baef872daeaa6a195b4bab090244b16f" name="Grid.php" role="magecommunity" />
-       </dir> <!-- /ET/IpSecurity/Block/Adminhtml/Log -->
-       <file md5sum="17f11639de5af08019be9577fd01e733" name="Log.php" role="magecommunity" />
-      </dir> <!-- /ET/IpSecurity/Block/Adminhtml -->
-     </dir> <!-- /ET/IpSecurity/Block -->
+      <dir name="Admin">
+       <dir name="Position">
+        <dir name="Grid">
+         <dir name="Renderer">
+          <file md5sum="7d0ef55745605db6b946934904077385" name="Action.php" role="magecommunity" />
+         </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Position/Grid/Renderer -->
+        </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Position/Grid -->
+        <file md5sum="cdf39b94416cf75f6688e66163ccb6d1" name="Grid.php" role="magecommunity" />
+       </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Position -->
+       <dir name="Slide">
+        <dir name="Edit">
+         <file md5sum="afff23d884e7e6d769d5442052692a75" name="Form.php" role="magecommunity" />
+        </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Slide/Edit -->
+        <dir name="Grid">
+         <dir name="Renderer">
+          <file md5sum="f28b6c954ba34a8b0d1538275c83bfbc" name="Action.php" role="magecommunity" />
+         </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Slide/Grid/Renderer -->
+        </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Slide/Grid -->
+        <file md5sum="cafbbeb8c0cd603abd89cf286e2cdb20" name="Edit.php" role="magecommunity" />
+        <file md5sum="de30d7d2a574b569603f5cd8ce1e3de0" name="Grid.php" role="magecommunity" />
+       </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin/Slide -->
+       <file md5sum="1408c0ab56f0a767bdad0a0e9e9fabf9" name="Position.php" role="magecommunity" />
+       <file md5sum="67e5f3f84f776f3f86fa20e010667a4c" name="Preview.php" role="magecommunity" />
+       <file md5sum="70a2006a47a354c8f38cb55a9086c623" name="Slide.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/Block/Admin -->
+      <file md5sum="3c8ae540fd156e20b195c00c96af7f3b" name="Interaktingslider.php" role="magecommunity" />
+     </dir> <!-- /BusinessDecision/Interaktingslider/Block -->
      <dir name="controllers">
-      <dir name="Adminhtml">
-       <file md5sum="cfc12c6a05fcb0486bb9f3b4c2eae4d0" name="LogController.php" role="magecommunity" />
-      </dir> <!-- /ET/IpSecurity/controllers/Adminhtml -->
-     </dir> <!-- /ET/IpSecurity/controllers -->
+      <dir name="Admin">
+       <file md5sum="6773099320b4afbb2a789a624f12b423" name="PositionController.php" role="magecommunity" />
+       <file md5sum="92091b97e6789959bfdeb14686052c5f" name="SlideController.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/controllers/Admin -->
+     </dir> <!-- /BusinessDecision/Interaktingslider/controllers -->
      <dir name="etc">
-      <file md5sum="7899e48569aa5d629179c9b1f192b1a6" name="config.xml" role="magecommunity" />
-      <file md5sum="462b9b4d2e802a63cdeaca5448b6bc47" name="system.xml" role="magecommunity" />
-     </dir> <!-- /ET/IpSecurity/etc -->
+      <file md5sum="9cd958e58955d983016054bfa170c864" name="config.xml" role="magecommunity" />
+      <file md5sum="34ae8161e4558f9a5b081c764cc12599" name="system.xml" role="magecommunity" />
+     </dir> <!-- /BusinessDecision/Interaktingslider/etc -->
      <dir name="Helper">
-      <file md5sum="08c557cd26157c317c1049d5f1366eab" name="Data.php" role="magecommunity" />
-     </dir> <!-- /ET/IpSecurity/Helper -->
+      <file md5sum="3076399ba0eb8614f6c6363b77912dd1" name="Data.php" role="magecommunity" />
+     </dir> <!-- /BusinessDecision/Interaktingslider/Helper -->
      <dir name="Model">
       <dir name="Mysql4">
-       <dir name="Ipsecuritylog">
-        <file md5sum="929fd786020e26b87f900caf0f2996f1" name="Collection.php" role="magecommunity" />
-       </dir> <!-- /ET/IpSecurity/Model/Mysql4/Ipsecuritylog -->
-       <file md5sum="4ec2037e5a52eaa4278ddd7ad2929dfc" name="Ipsecuritylog.php" role="magecommunity" />
-      </dir> <!-- /ET/IpSecurity/Model/Mysql4 -->
-      <file md5sum="bb8a6ad3b612c46ef8b2fa36d2fac709" name="Ipsecuritylog.php" role="magecommunity" />
-      <file md5sum="54243c67cd6b36e5b2fe9a5addaacfd7" name="Observer.php" role="magecommunity" />
-     </dir> <!-- /ET/IpSecurity/Model -->
+       <dir name="Slide">
+        <file md5sum="ea966b227bb85073cb0c717d8d59da0b" name="Collection.php" role="magecommunity" />
+       </dir> <!-- /BusinessDecision/Interaktingslider/Model/Mysql4/Slide -->
+       <file md5sum="2c280c9814971bb4107841a00883d56b" name="Slide.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/Model/Mysql4 -->
+      <dir name="Source">
+       <file md5sum="d7c852653db1c72b1352ffef9f1c4c2b" name="Effect.php" role="magecommunity" />
+       <file md5sum="6d6f52bfffff7dcad3f739d1bdb059c4" name="Mode.php" role="magecommunity" />
+       <file md5sum="a5809a21cf7ee4f52a16c49f905d5099" name="Skin.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/Model/Source -->
+      <dir name="Wysiwyg">
+       <file md5sum="cfe1e3e6c975ac701f24f665e9dfda07" name="Config.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/Model/Wysiwyg -->
+      <file md5sum="9413ba794a8968b928e298a0f91a633c" name="Interaktingslider.php" role="magecommunity" />
+      <file md5sum="53c1ca64cb2768b24a882a5a2ba26152" name="Slide.php" role="magecommunity" />
+     </dir> <!-- /BusinessDecision/Interaktingslider/Model -->
      <dir name="sql">
-      <dir name="ipsecurity_setup">
-       <file md5sum="c2524c78dbb7db294d53983ca588c5bb" name="mysql4-install-1.5.php" role="magecommunity" />
-      </dir> <!-- /ET/IpSecurity/sql/ipsecurity_setup -->
-     </dir> <!-- /ET/IpSecurity/sql -->
-    </dir> <!-- /ET/IpSecurity -->
-    <file md5sum="78b7fbe5ad986b7c39a28e7b72ed9927" name="ET_IpSecurity_ChangeLog.txt" role="magecommunity" />
-    <file md5sum="fc3b3f0f66c6cd3964c564212f809d0a" name="ET_IpSecurity_Description.txt" role="magecommunity" />
-    <file md5sum="b799504264c23c11a941473d7a3e3ab7" name="ET_IpSecurity_LICENSE.txt" role="magecommunity" />
-   </dir> <!-- /ET -->
+      <dir name="interaktingslider_setup">
+       <file md5sum="b490b26c6c5b8303e3e5454f5f1bb1bd" name="mysql4-install-1.0.6.php" role="magecommunity" />
+      </dir> <!-- /BusinessDecision/Interaktingslider/sql/interaktingslider_setup -->
+     </dir> <!-- /BusinessDecision/Interaktingslider/sql -->
+    </dir> <!-- /BusinessDecision/Interaktingslider -->
+   </dir> <!-- /BusinessDecision -->
+   <dir name="en_US">
+    <file md5sum="90183c70da70246ff205cc2e5d7ed1f3" name="BusinessDecision_Interaktingslider.csv" role="magelocale" />
+   </dir> <!-- /en_US -->
+   <dir name="frontend">
+    <dir name="default">
+     <dir name="default">
+      <dir name="template">
+       <dir name="interaktingslider">
+        <file md5sum="7e3ec61a6dda51a5dfbfbdc95158de2f" name="slider.phtml" role="magedesign" />
+       </dir> <!-- /frontend/default/default/template/interaktingslider -->
+      </dir> <!-- /frontend/default/default/template -->
+     </dir> <!-- /frontend/default/default -->
+    </dir> <!-- /frontend/default -->
+   </dir> <!-- /frontend -->
+   <dir name="fr_FR">
+    <file md5sum="e0767a57b73b61c6eb947ace29e0581f" name="BusinessDecision_Interaktingslider.csv" role="magelocale" />
+   </dir> <!-- /fr_FR -->
+   <dir name="interaktingslider">
+    <dir name="blank">
+     <file md5sum="0e0f9f8e9ae3ff3a0f9ba147ff9f0da4" name="info.txt" role="mageskin" />
+     <file md5sum="5a439936504f0aaab5afbdc04749101d" name="style.css" role="mageskin" />
+    </dir> <!-- /interaktingslider/blank -->
+    <dir name="default">
+     <dir name="images">
+      <file md5sum="f8c1f130ad69464fe7aff2f589b2ec75" name="base_mini_head_bg.gif" role="mageskin" />
+     </dir> <!-- /interaktingslider/default/images -->
+     <file md5sum="0e0f9f8e9ae3ff3a0f9ba147ff9f0da4" name="info.txt" role="mageskin" />
+     <file md5sum="76c0df0d9e8faad7c33ec0466b257a8c" name="style.css" role="mageskin" />
+    </dir> <!-- /interaktingslider/default -->
+   </dir> <!-- /interaktingslider -->
+   <dir name="js">
+    <dir name="interaktingslider">
+     <file md5sum="4b8baa8d3e6a99010f50a1bcc6f8ebfd" name="interaktingslider.js" role="mageweb" />
+    </dir> <!-- /js/interaktingslider -->
+   </dir> <!-- /js -->
+   <dir name="media">
+    <dir name="upload">
+     <dir name="image">
+      <file md5sum="ce11dce378b08f7f0876fac18273b009" name="is_back_eng.png" role="mageweb" />
+      <file md5sum="6ce780bd77833223cbc4b22a09c0881d" name="is_back_fr.png" role="mageweb" />
+      <file md5sum="49300c10d9b1b78e4610017009130af9" name="is_logo_interakting.png" role="mageweb" />
+     </dir> <!-- /media/upload/image -->
+    </dir> <!-- /media/upload -->
+   </dir> <!-- /media -->
    <dir name="modules">
-    <file md5sum="d191fe14ed772c4515519e1445af2229" name="ET_IpSecurity.xml" role="mageetc" />
+    <file md5sum="caae9d97a0114a3a47ae7fd04cb8fd5b" name="BusinessDecision_Interaktingslider.xml" role="mageetc" />
    </dir> <!-- /modules -->
-   <dir name="ru_RU">
-    <dir name="template">
-     <dir name="email">
-      <file md5sum="a6f731a6903375bfc06edc6a31d67865" name="et_ipsecurity.html" role="magelocale" />
-      <file md5sum="5961f9ae7d71f843d96d70c18c223222" name="et_ipsecurity_admin.html" role="magelocale" />
-     </dir> <!-- /ru_RU/template/email -->
-    </dir> <!-- /ru_RU/template -->
-    <file md5sum="7f1e9f9b92e96f45fc45b13d0ca4e5e6" name="ET_IpSecurity.csv" role="magelocale" />
-   </dir> <!-- /ru_RU -->
   </dir> <!-- / -->
  </contents>
  <dependencies>
   <required>
    <php>
-    <min>5.0.0</min>
+    <min>5.2.0</min>
     <max>6.0.0</max>
+    <exclude>6.0.0</exclude>
    </php>
    <pearinstaller>
     <min>1.6.2</min>
