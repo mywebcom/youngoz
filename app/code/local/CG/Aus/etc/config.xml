@@ -11,6 +11,7 @@
     			<class>CG_Aus_Model</class>
     		</aus>
     	</models>
+    	<!-- 
     	<events>
             <checkout_cart_product_add_after>
                 <observers>
@@ -22,6 +23,7 @@
                 </observers>
             </checkout_cart_product_add_after>
         </events>
+         -->
     </global>
     <default>
     	<carriers>

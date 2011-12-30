@@ -527,7 +527,9 @@ table.recently-list td{width:20%;}
 .listing-type-grid li.item .price-box {text-align:center}
 .listing-type-grid li.item .corner-right-top {padding:19px 12px 8px 17px;height:270px}
 .listing-type-grid li.item .button {margin:10px auto;display:block}
-.IE8 .listing-type-grid li.item .button {margin-left:30%}
+.listing-type-grid li.item .add-to-compare {width:120px;float:right;display:block}
+.listing-type-grid li.item .fl {float:left}
+.IE7 .listing-type-grid li.item .fl  {margin-left:-10px}
 /* Rewrites for different layouts */
 .col-1-layout .listing-type-grid{background-image:url(../images/bkg_products-grid1.gif);}
 .col-1-layout .listing-type-grid li.item{width:280px;}
@@ -1223,3 +1225,6 @@ table.print .price-incl-tax .price{display:inline;}
 .contacts-index-index .sp {margin-top:10px}
 .pickup-info {background:transparent url(../images/youngoz-pickup.gif) no-repeat left top; display:block; width:140px;height:77px;position:absolute; right:5px; top:60px}
 .IE7 .middle  {min-height:600px;height:600px}
+/** discounted shipping **/
+.shippingmessage {padding-left:310px;position:relative;height:95px;color:#ff1d90;font:bold 16px Arail;line-height:95px;margin-bottom:10px;border:1px solid #ff1d90}
+.shippingmessage img {position:absolute;left:0;top:0}

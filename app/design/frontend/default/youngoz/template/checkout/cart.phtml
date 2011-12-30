@@ -31,6 +31,23 @@
  * @see Mage_Checkout_Block_Cart
  */
 ?>
+<?php 
+$items = $this->getItems();
+$qty = 0;
+foreach($items as $item){
+	$qty += $item->getQty();	
+}
+if($qty == 1){
+?>
+<div class="shippingmessage">
+<a href="/shipping-info">
+<img src="<?php echo $this->getSkinUrl("images/50pec.jpg") ?>" alt="discounted shipping" title="discounted shipping" />
+</a>
+<?php echo $this->__('Combined postage for multiple items  ?  - Save 50%  on 2nd item onwards !') ?>
+</div>
+<?php 
+}
+?>
 <div class="main-block">
 		<div class="page-head-alt button-level">
 			<div class="shopby-title-bar">
