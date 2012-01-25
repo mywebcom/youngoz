@@ -15,6 +15,17 @@ class CG_Shippingx_ajaxController
 			  ->setCollectShippingRates(true);
 			  
 		$product = Mage::getSingleton('catalog/product')->load($pid);
+		
+		if(empty($qty)){
+			$stock = $product->getStockItem();
+			$data = $stock->getData();
+			$data['is_in_stock'] = 1;
+			$data['manage_stock'] = 1;
+			$stock->setData($data);
+			$product->setStockItem($stock);
+			$qty = 1;
+		}		
+		
 		$quote->addProduct($product,$qty);
 		
 		$quote->getShippingAddress()->setCollectShippingRates(true);

@@ -21,12 +21,18 @@
 	var FORM_KEY="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>";
 	function loadEstimatedPostage(){
 		var reloadurl = '<?php echo $this->getUrl('shippingx/ajax/estimate') ?>';
-		var qty = $('qty').value;
+		
 		var productId = $('productId').value;
-		if(qty.length == 0){
-			qty = 1;
+
+		if($('qty') != null){
+			var qty = $('qty').value;
+			if(qty.length == 0){
+				qty = 1;
+			}else{
+				qty = parseInt(qty);
+			}
 		}else{
-			qty = parseInt(qty);
+			var qty = null;
 		}
 		Element.show('loadingmask');
 		new Ajax.Request(reloadurl,{
